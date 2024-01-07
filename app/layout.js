@@ -5,12 +5,10 @@ import Navbar from '@/components/Navbar'
 import { Providers } from './../providers';
 const inter = Inter({ subsets: ['latin'] })
 
-
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
         <html lang="en">
-          
           <body className={inter.className}>
             <Navbar />
           <Providers>

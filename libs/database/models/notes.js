@@ -1,10 +1,9 @@
 import mongoose, { Schema } from 'mongoose'
 
 var NotesSchema = new mongoose.Schema({
-    user: {
-        type: Schema.Types.ObjectId,
+    clerkId: {
+        type: String,
         required: true,
-        ref: "User"
     },
     title: {
         type: String,
