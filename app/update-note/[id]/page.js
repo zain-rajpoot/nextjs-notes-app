@@ -1,21 +1,21 @@
 "use client";
 import React from 'react'
 
-export default function addNote() {
+export default function UpdatedNote({params}) {
 
-  const AddNote =(e)=>{
+  const UpdateNote =(e)=>{
 e.preventDefault()
-console.log("Note added")
+console.log("Note Updated")
   }
   return (
     <div className="mx-auto max-w-7xl ">
        <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="text-center text-xl font-medium text-gray-900">Add a Note </h2>
+          <h2 className="text-center text-xl font-medium text-gray-900">Update a Note {params.id}</h2>
         </div>
         <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-7xl">
           <div className="bg-white py-8 px-4 sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={AddNote} method="POST">
+            <form className="space-y-6" onSubmit={UpdateNote} method="POST">
               <div>
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                 Title                </label>
@@ -48,7 +48,7 @@ console.log("Note added")
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Add note
+                  Update note
                 </button>
               </div>
             </form>

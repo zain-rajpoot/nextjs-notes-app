@@ -19,8 +19,7 @@ export default function Navbar() {
                         <div className="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
                             <div className="ml-4 mt-2">
                                 <Link href={'/'} className="text-2xl font-bold text-gray-900">
-                                    NOTES APP
-                                    <sup className='text-[10px] text-indigo-600'>Next js</sup>
+                            {user?<>Hi, {user?.firstName}</>:"Notes App"}                            
                                 </Link>
                             </div>
                             <div className="ml-4 mt-2 gap-2 flex">
@@ -40,7 +39,7 @@ export default function Navbar() {
                                             <Link href="/user-profile" className="flex">Profile</Link>
                                         </DropdownItem>
                                         <DropdownItem key="delete" className="text-danger" color="danger">
-                                            <SignOutButton signOutCallback={() => {router.push('/sign-in');}}>
+                                            <SignOutButton signOutCallback={() => { router.push('/sign-in'); }}>
                                                 <span className="flex">Sign Out</span>
                                             </SignOutButton>
                                         </DropdownItem>
