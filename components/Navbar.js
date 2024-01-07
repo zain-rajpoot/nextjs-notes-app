@@ -15,10 +15,6 @@ export default function Navbar() {
         <div>
             {userId ?
                 <div>
-                    {/* For adding notes button */}
-                    <div className="fixed bottom-0 right-0 text-white text-xl rounded-full px-4 py-2 m-4 bg-indigo-600">
-                        +
-                    </div>
                     <div className="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                         <div className="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
                             <div className="ml-4 mt-2">
