@@ -50,7 +50,7 @@ export default function Home() {
   }
   useEffect(() => {
     GetNotes()
-  }, [GetNotes]);
+  }, []);
 
   return (
     
@@ -70,7 +70,7 @@ export default function Home() {
         <>
         {AllNotes.length === 0 ?
         <div className=" flex flex-col gap-4 justify-center items-center mt-32">
-        <p className="text-lg font-semibold">You didn't add any NOTE yet</p>
+        <p className="text-lg font-semibold">You did not add any NOTE yet</p>
         <Button color="primary">
           <Link href="/add-new-note">+ Add Note</Link>
           </Button>

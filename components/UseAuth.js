@@ -1,6 +1,6 @@
 // useAuth.js
 import { useAuth as useClerkAuth } from "@clerk/nextjs";
 
-export function useAuth() {
+export default function useAuth() {
   return useClerkAuth();
 }

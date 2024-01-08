@@ -17,7 +17,7 @@ export default function SingleNote({params}) {
     }
     useEffect(() => {
         GetSingleNote()
-      }, [GetSingleNote]);
+      }, []);
     return (
     <div>
         <div className="relative py-16 bg-white overflow-hidden">

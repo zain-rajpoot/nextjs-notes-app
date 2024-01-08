@@ -2,32 +2,34 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
-import { useRouter } from 'next/navigation'
-import {useAuth} from '@/components/useAuth'
+import { useRouter } from 'next/navigation';
+import useAuth from '@/components/UseAuth';
 
-export default function AddNote() {
+export default function AddNote() { 
   const [title, settitle] = useState('');
   const [desc, setdesc] = useState('');
-  const router = useRouter()
+  const router = useRouter();
   const { userId } = useAuth();
 
   const AddSingleNote = async (e) => {
-    e.preventDefault()
-    try{
+    e.preventDefault();
+    try {
       await axios.post('http://localhost:3000/api/notes',
-      { title, desc, clerkId: userId }).then((res) => {
-        console.log(res.data);
-        router.push('/')
-        toast.success(res.data.msg)
-      }).catch((err) => {
-        toast.error(res.response.data.msg)
-        console.log(err);
-      })
-    }catch(error){
-      toast.error(error.message)
-    console.log(error)
+       { title, desc, clerkId: userId })
+        .then((res) => {
+          console.log(res.data);
+          router.push('/');
+          toast.success(res.data.msg);
+        })
+        .catch((err) => {
+          toast.error(err.response.data.msg);
+          console.log(err);
+        });
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
     }
-  }
+  };
   return (
     <div className="mx-auto max-w-7xl ">
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">

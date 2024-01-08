@@ -43,7 +43,7 @@ export default function UpdatedNote({ params }) {
   }
   useEffect(() => {
     GetNote()
-  }, [GetNote]);
+  }, []);
   return (
     <div className="mx-auto max-w-7xl ">
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
