@@ -9,7 +9,7 @@ export async function GET(request,{params}) {
             if (!note){
                 return NextResponse.json({ msg: "Note with this is note found" }, { status: 404 });
             }
-            return NextResponse.json({ msg: "Successfully Added note", note }, { status: 200 });
+            return NextResponse.json({ note }, { status: 200 });
     } catch (error) {
         console.error(error);
         return NextResponse.json({ msg: "Internal Server Error", error: error.message }, { status: 500 });

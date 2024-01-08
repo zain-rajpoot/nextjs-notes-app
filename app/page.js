@@ -10,12 +10,16 @@ import Head from "next/head";
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation'
 import {Button} from "@nextui-org/react";
+import MySkeleton from "@/components/MySkeleton";
+
 export default function Home() {
   const router = useRouter()
   const { userId } = useAuth();
   const { user } = useUser();
   const [AllNotes, setAllNotes] = useState([]);
+  const [loading, setloading] = useState(true);
   const GetNotes = async () => {
+    setloading(true)
     try {
       await axios.get(`http://localhost:3000/api/notes?userid=${userId}`).then((res) => {
         setAllNotes(res.data.notes);
@@ -24,6 +28,8 @@ export default function Home() {
       })
     } catch (error) {
       console.log(error.message)
+    } finally {
+      setloading(false)
     }
   }
   const DeleteNote = async (id) => {
@@ -56,6 +62,12 @@ export default function Home() {
       <Suspense fallback={<Loading />}>
         {/* {userId}
         <br /> */}
+        {loading ?
+        <div className="mx-auto max-w-7xl">
+        <MySkeleton />
+        </div>
+        :
+        <>
         {AllNotes.length === 0 ?
         <div className=" flex flex-col gap-4 justify-center items-center mt-32">
         <p className="text-lg font-semibold">You didn't add any NOTE yet</p>
@@ -72,7 +84,7 @@ export default function Home() {
                   <h2 className="text-xl text-indigo-500 truncate w-48 font-semibold uppercase">{note.title}</h2>
                   <p className="text-small text-default-500">{new Date(note.createdAt).toLocaleString()}</p>
                 </div>
-                <div className="absolute top-5 right-3 flex text-bold gap-3">
+                <div className="absolute top-5 right-3 flex font-bold gap-3">
                   <Link href={`update-note/${note._id}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className="bi bi-pencil-square" viewBox="0 0 16 16">
                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -101,7 +113,10 @@ export default function Home() {
             </Card>
           )
         })}
-      </div>}
+      </div>
+      }
+      </>
+      }
       </Suspense>
     </div>
   )
