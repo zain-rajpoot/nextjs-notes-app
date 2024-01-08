@@ -50,7 +50,7 @@ export default function Home() {
   }
   useEffect(() => {
     GetNotes()
-  }, []);
+  }, [GetNotes]);
 
   return (
     

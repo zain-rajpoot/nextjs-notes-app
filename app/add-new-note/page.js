@@ -1,17 +1,17 @@
 "use client";
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useAuth } from "@clerk/nextjs";
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation'
+import {useAuth} from '@/components/useAuth'
 
-export default function addNote() {
+export default function AddNote() {
+  const [title, settitle] = useState('');
+  const [desc, setdesc] = useState('');
   const router = useRouter()
   const { userId } = useAuth();
 
-  const [title, settitle] = useState('');
-  const [desc, setdesc] = useState('');
-  const AddNote = async (e) => {
+  const AddSingleNote = async (e) => {
     e.preventDefault()
     try{
       await axios.post('http://localhost:3000/api/notes',
@@ -36,7 +36,7 @@ export default function addNote() {
         </div>
         <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-7xl">
           <div className="bg-white py-8 px-4 sm:rounded-lg sm:px-10">
-            <form className="space-y-6" onSubmit={AddNote} method="POST">
+            <form className="space-y-6" onSubmit={AddSingleNote} method="POST">
               <div>
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                   Title                </label>
