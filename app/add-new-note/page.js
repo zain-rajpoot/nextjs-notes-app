@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
-import useAuth from '@/components/UseAuth';
+import { useAuth } from "@clerk/nextjs";
 
 export default function AddNote() { 
   const [title, settitle] = useState('');
