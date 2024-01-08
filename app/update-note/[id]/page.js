@@ -12,7 +12,7 @@ export default function UpdatedNote({ params }) {
 
   const GetNote = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/${params.id}`);
+      const res = await axios.get(`/api/${params.id}`);
       let alldata = res.data.note;
       settitle(alldata.title);
       setdesc(alldata.desc);

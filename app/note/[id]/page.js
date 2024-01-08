@@ -5,7 +5,7 @@ export default function SingleNote({params}) {
     const [oneNote, setoneNote] = useState([]);
     const GetSingleNote = async () => {
       try {
-        await axios.get(`http://localhost:3000/api/single-note/${params.id}`)
+        await axios.get(`/api/single-note/${params.id}`)
         .then((res) => {
         setoneNote(res.data.note);
         }).catch((err) => {

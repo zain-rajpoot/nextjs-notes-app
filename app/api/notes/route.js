@@ -1,9 +1,12 @@
 import Database from '@/libs/database';
 import Notes from '@/libs/database/models/notes';
 import { NextResponse } from 'next/server'
+import cors from 'cors';
 
 export async function POST(request) {
     await Database()
+    await cors();
+
     try {
         const { title, desc, clerkId } = await request.json()
         if (!clerkId) {
@@ -25,6 +28,7 @@ export async function POST(request) {
 export async function GET(request) {
     try {
         await Database();
+        await cors( );
         const searchParams = new URLSearchParams(request.nextUrl.search);
         const userId = searchParams.get('userid');
         if (userId) {
@@ -41,6 +45,7 @@ export async function GET(request) {
 export async function DELETE(request) {
     try {
         await Database();
+        await cors( );
         const searchParams = new URLSearchParams(request.nextUrl.search);
         const noteid = searchParams.get('notedeleteid');
         if (noteid) {
@@ -60,6 +65,7 @@ export async function DELETE(request) {
 export async function PUT(request) {
     try {
         await Database();
+        await cors( );
         const { newtitle, newdesc } = await request.json()
         if (!newtitle, !newdesc) {
             return NextResponse.json({ msg: "Title and description is required" }, { status: 401 });

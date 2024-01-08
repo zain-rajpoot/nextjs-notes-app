@@ -14,7 +14,7 @@ export default function AddNote() {
   const AddSingleNote = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/notes',
+      await axios.post('/api/notes',
        { title, desc, clerkId: userId })
         .then((res) => {
           console.log(res.data);

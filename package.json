@@ -13,6 +13,7 @@
     "@clerk/themes": "^1.7.9",
     "@nextui-org/react": "^2.2.9",
     "axios": "^1.6.5",
+    "cors": "^2.8.5",
     "framer-motion": "^10.17.9",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",

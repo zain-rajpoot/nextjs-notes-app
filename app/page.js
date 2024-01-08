@@ -21,7 +21,8 @@ export default function Home() {
   const GetNotes = async () => {
     setloading(true)
     try {
-      await axios.get(`http://localhost:3000/api/notes?userid=${userId}`).then((res) => {
+      await axios.get(`/api/notes?userid=${userId}`)
+      .then((res) => {
         setAllNotes(res.data.notes);
       }).catch((err) => {
         console.log(err);
@@ -35,7 +36,7 @@ export default function Home() {
   const DeleteNote = async (id) => {
     try {
     if (confirm("Are you sure you want to delete this note?")){
-      await axios.delete(`http://localhost:3000/api/notes?notedeleteid=${id}`)
+      await axios.delete(`/api/notes?notedeleteid=${id}`)
       .then((res) => {
         toast.success(res.data.msg)
         router.push('/')
