@@ -1,7 +1,7 @@
 import { SignUp } from "@clerk/nextjs";
 
 export const metadata = {
-  title: 'Sign up | nextjs notes app',
+  title: 'Nextjs Notes App',
 }
 export default function Page() {
   return (
