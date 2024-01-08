@@ -23,7 +23,7 @@ export default function UpdatedNote({ params }) {
   const UpdateNote = async (e) => {
     e.preventDefault()
     try {
-      await axios.put(`http://localhost:3000/api/notes?noteupdateid=${params.id}`, {
+      await axios.put(`/api/notes?noteupdateid=${params.id}`, {
         newtitle: title,
         newdesc: desc
       })
