@@ -22,7 +22,7 @@ export default function AddNote() {
           toast.success(res.data.msg);
         })
         .catch((err) => {
-          toast.error(err.response.data.msg);
+          toast.error("Something went wrong");
           console.log(err);
         });
     } catch (error) {
